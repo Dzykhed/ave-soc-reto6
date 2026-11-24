@@ -1,0 +1,10 @@
+<group name="windows,windows_security,threat_hunting,">
+  <rule id="100105" level="14">
+    <if_sid>63103</if_sid>
+    <description>ALERTA CRITICA SOC L2: Registro de Auditoria Security borrado en Windows Server 2022 (Event ID 1102 - Clear-EventLog)</description>
+    <mitre>
+      <id>T1070.001</id>
+    </mitre>
+    <group>event_log_cleared,pci_dss_10.5.2,</group>
+  </rule>
+</group>

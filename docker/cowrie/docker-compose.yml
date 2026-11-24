@@ -1,0 +1,16 @@
+services:
+  cowrie:
+    build: .
+    image: cowrie-local:latest
+    container_name: cowrie-honeypot
+    restart: always
+    ports:
+      - "2222:2222"
+    volumes:
+      - ./logs:/cowrie/cowrie-git/var/log/cowrie
+    networks:
+      - red-honeypot
+
+networks:
+  red-honeypot:
+    driver: bridge

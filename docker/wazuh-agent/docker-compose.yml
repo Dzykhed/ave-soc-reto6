@@ -1,0 +1,20 @@
+services:
+  wazuh-agent:
+    build: .
+    image: wazuh-agent-local:4.9.0
+    container_name: wazuh-agent
+    hostname: Servidor-Ubuntu-Docker-Lab
+    environment:
+      - WAZUH_MANAGER=wazuh.manager
+      - WAZUH_AGENT_NAME=Servidor-Ubuntu-Docker-Lab
+    volumes:
+      - /home/mery/modsecurity/logs:/var/log/waf-nginx:ro
+      - /home/mery/suricata/logs:/var/log/suricata-ids:ro
+    networks:
+      - red_wazuh_local
+    restart: always
+
+networks:
+  red_wazuh_local:
+    external: true
+    name: single-node_default

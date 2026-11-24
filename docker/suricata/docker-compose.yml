@@ -1,0 +1,15 @@
+services:
+  suricata-ids:
+    build: .
+    image: suricata-local:7.0.6
+    container_name: suricata-ids
+    network_mode: "host"
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+      - SYS_NICE
+    volumes:
+      - ./logs:/var/log/suricata
+      - ./rules/local.rules:/var/lib/suricata/rules/local.rules
+    command: -i ens33 -S /var/lib/suricata/rules/local.rules
+    restart: always

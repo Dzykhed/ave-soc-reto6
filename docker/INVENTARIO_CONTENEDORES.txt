@@ -1,0 +1,14 @@
+NAMES                           IMAGE                         STATUS                      PORTS
+ave-gophish                     gophish/gophish:latest        Up About a minute           8080/tcp, 0.0.0.0:3333->3333/tcp, [::]:3333->3333/tcp, 8443/tcp, 0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+ave-mailhog                     mailhog/mailhog:latest        Up About a minute           0.0.0.0:1025->1025/tcp, [::]:1025->1025/tcp, 0.0.0.0:8025->8025/tcp, [::]:8025->8025/tcp
+glpi_web                        diouxx/glpi:latest            Up About a minute           443/tcp, 0.0.0.0:8088->80/tcp, [::]:8088->80/tcp
+glpi_db                         mariadb:10.11                 Up About a minute           3306/tcp
+single-node-wazuh.dashboard-1   wazuh/wazuh-dashboard:4.9.0   Up About a minute           443/tcp, 0.0.0.0:8443->5601/tcp, [::]:8443->5601/tcp
+single-node-wazuh.manager-1     wazuh/wazuh-manager:4.9.0     Up About a minute           0.0.0.0:1514-1515->1514-1515/tcp, [::]:1514-1515->1514-1515/tcp, 0.0.0.0:514->514/udp, [::]:514->514/udp, 0.0.0.0:55000->55000/tcp, [::]:55000->55000/tcp, 1516/tcp
+single-node-wazuh.indexer-1     wazuh/wazuh-indexer:4.9.0     Up About a minute           0.0.0.0:9200->9200/tcp, [::]:9200->9200/tcp
+cowrie-honeypot                 cowrie-local:latest           Exited (0) 11 days ago      
+wazuh-agent                     wazuh-agent-local:4.9.0       Up About a minute           
+suricata-ids                    suricata-local:7.0.6          Exited (0) 42 hours ago     
+waf-modsecurity                 owasp/modsecurity-crs:nginx   Exited (0) 42 hours ago     
+dvwa_web                        dvwa-docker-web               Exited (137) 42 hours ago   
+dvwa_db                         mariadb:10.11                 Exited (0) 42 hours ago     

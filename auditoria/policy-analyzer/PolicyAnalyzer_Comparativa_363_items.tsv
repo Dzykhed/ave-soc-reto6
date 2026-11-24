@@ -1,0 +1,11 @@
+﻿$dest = "C:\Herramientas_AVE\Para_GitHub_WIN\auditoria\policy-analyzer"
+New-Item -Path $dest -ItemType Directory -Force | Out-Null
+
+# Guardar como tabla TSV (abre directo en Excel/LibreOffice/GitHub sin dañar columnas)
+Get-Clipboard | Set-Content -Path "$dest\PolicyAnalyzer_Comparativa_363_items.tsv" -Encoding UTF8
+
+# Copiar también los archivos nativos .PolicyRules (XML reproducibles)
+Get-ChildItem -Path "C:\Herramientas_AVE","C:\Users\Administrator\Documents" -Recurse -Filter "*.PolicyRules" -ErrorAction SilentlyContinue |
+    Copy-Item -Destination $dest -Force
+
+Get-ChildItem $dest | Select-Object Name, Length

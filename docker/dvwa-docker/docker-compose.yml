@@ -1,0 +1,43 @@
+services:
+  web:
+    build: .
+    image: dvwa-docker-web
+    container_name: dvwa_web
+    ports:
+      - "8080:80"
+    environment:
+      - DB_SERVER=db
+      - DB_DATABASE=dvwa
+      - DB_USER=dvwa
+      - DB_PASSWORD=p@ssw0rd
+    depends_on:
+      - db
+    networks:
+      red-interna-dvwa: # Manera correcta sin guion para red simple
+      red-waf:          # Manera correcta sin guion para red con alias
+        aliases:
+          - dvwa-app
+    restart: always
+
+  db:
+    image: mariadb:10.11
+    container_name: dvwa_db
+    environment:
+      - MYSQL_ROOT_PASSWORD=p@ssw0rd
+      - MYSQL_DATABASE=dvwa
+      - MYSQL_USER=dvwa
+      - MYSQL_PASSWORD=p@ssw0rd
+    volumes:
+      - dvwa_db_data:/var/lib/mysql
+    networks:
+      - red-interna-dvwa # Este se puede quedar con guion porque es el único
+    restart: always
+
+networks:
+  red-interna-dvwa:
+    driver: bridge
+  red-waf:
+    external: true
+
+volumes:
+  dvwa_db_data:
