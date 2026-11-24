@@ -100,7 +100,7 @@ ave-soc-reto6/
 sudo sysctl -w vm.max_map_count=262144
 
 # Clonar repositorio y levantar todos los stacks Docker
-git clone https://github.com/<usuario>/ave-soc-reto6.git
+git clone https://github.com/Dzykhed/ave-soc-reto6.git
 cd ave-soc-reto6
 chmod +x deploy_soc_ubuntu.sh
 ./deploy_soc_ubuntu.sh
